@@ -1,0 +1,16 @@
+.element__like {
+  background-image: url(../../../images/like.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: #ffffff;
+  width: 22px;
+  height: 19px;
+  border: none;
+  margin: 31px 18px 0 0;
+  grid-area: like;
+}
+
+.element__like:active {
+  opacity: 1;
+  background-image: url(../../../images/active-like.png);
+}

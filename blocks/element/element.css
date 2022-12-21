@@ -1,0 +1,16 @@
+.element {
+  width: 282px;
+  height: 361px;
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  grid-template-columns: 1fr min-content;
+  grid-template-areas:
+    "pic pic"
+    "title like";
+}
+
+

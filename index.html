@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Место</title>
+    <link rel="stylesheet" href="./vendor/normalize.css" />
+    <link rel="stylesheet" href="./pages/index.css" />
+  </head>
+
+  <body class="page">
+    <!-- header -->
+    <header class="header">
+      <img class="header__logo" src="./images/logo.png" alt="Логотип" />
+    </header>
+
+    <main class="main">
+      <!-- profile -->
+      <section class="profile">
+        <img
+          class="profile__avatar"
+          src="./images/profile-photo.png"
+          alt="Фото профиля"
+        />
+        <div class="profile__info">
+          <h1 class="profile__name">Даша Путешественница</h1>
+          <p class="profile__description">Исследую крутые места в России!</p>
+          <button
+            class="button profile__button profile__button_edit"
+            type="button"
+          ></button>
+        </div>
+        <button
+          class="button profile__button profile__button_add"
+          type="button"
+        ></button>
+      </section>
+
+      <!-- elements -->
+      <!-- Немного похвастаюсь частью своих путешествий за последние полгода:))) -->
+      <section class="elements">
+        <div class="element">
+          <img
+            src="./images/taman.png"
+            alt="Винодельня Шато-Тамань"
+            class="element__picture"
+          />
+          <h2 class="element__title">Таманский полуостров</h2>
+          <button class="button element__like" type="button"></button>
+        </div>
+
+        <div class="element">
+          <img
+            src="./images/abraudurso.png"
+            alt="Винодельня в Абрау-Дюрсо"
+            class="element__picture"
+          />
+          <h2 class="element__title">Абрау-Дюрсо</h2>
+          <button class="button element__like" type="button"></button>
+        </div>
+
+        <div class="element">
+          <img
+            src="./images/kazan.png"
+            alt="Мечеть Кул-Шериф в Казани"
+            class="element__picture"
+          />
+          <h2 class="element__title">Казань</h2>
+          <button class="button element__like" type="button"></button>
+        </div>
+
+        <div class="element">
+          <img
+            src="./images/murmansk.png"
+            alt="Ресторан в Мурманске"
+            class="element__picture"
+          />
+          <h2 class="element__title">Мурманск</h2>
+          <button class="button element__like" type="button"></button>
+        </div>
+
+        <div class="element">
+          <img
+            src="./images/teriberka.png"
+            alt="Конец всех дорог в Териберке"
+            class="element__picture"
+          />
+          <h2 class="element__title">Териберка</h2>
+          <button class="button element__like" type="button"></button>
+        </div>
+
+        <div class="element">
+          <img
+            src="./images/karelia.png"
+            alt="Домик в Карелии"
+            class="element__picture"
+          />
+          <h2 class="element__title">Карелия</h2>
+          <button class="button element__like" type="button"></button>
+        </div>
+      </section>
+      <section class="popup">
+        <form class="popup__container">
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <input
+            type="text"
+            class="popup__text popup__text_name"
+            placeholder="Имя"
+          />
+          <input
+            type="text"
+            class="popup__text popup__text_about"
+            placeholder="О себе"
+          />
+          <button type="submit" class="popup__submit-btn">Сохранить</button>
+          <button class="popup__close-button" type="button"></button>
+        </form>
+      </section>
+    </main>
+
+    <!-- footer -->
+    <footer class="footer">
+      <p class="footer__copyright">&COPY; 2020 Mesto Russia</p>
+    </footer>
+    <script src="./scripts/index.js"></script>
+  </body>
+</html>

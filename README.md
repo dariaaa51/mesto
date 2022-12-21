@@ -24,4 +24,4 @@
 [Ссылка](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=28212%3A155&t=T786gJMQpznKtMbP-0)
 
 ## GitHub Pages
-[Ссылка]()
+[Ссылка](https://dariaaa51.github.io/mesto/)

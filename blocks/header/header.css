@@ -11,6 +11,8 @@
   .header {
     width: 100%;
     min-height: 56px;
-    padding: 28px 0 0 0;
+    max-width: 320px;
+    padding: 0;
   }
 }
+

@@ -1,4 +1,4 @@
-.profile__button_add {
+.profile__button_type_add {
   background-image: url("../../../../images/plus.svg");
   justify-self: flex-end;
   margin-left: auto;
@@ -9,21 +9,22 @@
 }
 
 @media screen and (max-width: 980px) {
-  .profile__button_add {
+  .profile__button_type_add {
     width: 20%;
     background-size: 16px;
   }
 }
 
 @media screen and (max-width: 685px) {
-  .profile__button_add {
+  .profile__button_type_add {
     width: 100%;
     margin-top: 36px;
+
   }
 }
 
 @media screen and (max-width: 350px) {
-  .profile__button_add {
-    max-width: 282px;
+  .profile__button_type_add {
+    max-width: 272px;
   }
 }

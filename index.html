@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Место</title>
+    <title>Mesto</title>
     <link rel="stylesheet" href="./pages/index.css" />
   </head>
 
@@ -25,12 +25,12 @@
           <h1 class="profile__name">Даша Путешественница</h1>
           <p class="profile__description">Исследую крутые места в России!</p>
           <button
-            class="button profile__button profile__button_edit"
+            class="button profile__button profile__button_type_edit"
             type="button"
           ></button>
         </div>
         <button
-          class="button profile__button profile__button_add"
+          class="button profile__button profile__button_type_add"
           type="button"
         ></button>
       </section>
@@ -45,7 +45,7 @@
             class="element__picture"
           />
           <h2 class="element__title">Таманский полуостров</h2>
-          <button class="button element__like" type="button"></button>
+          <button class="element__like" type="button"></button>
         </div>
 
         <div class="element">
@@ -55,7 +55,7 @@
             class="element__picture"
           />
           <h2 class="element__title">Абрау-Дюрсо</h2>
-          <button class="button element__like" type="button"></button>
+          <button class="element__like" type="button"></button>
         </div>
 
         <div class="element">
@@ -65,7 +65,7 @@
             class="element__picture"
           />
           <h2 class="element__title">Казань</h2>
-          <button class="button element__like" type="button"></button>
+          <button class="element__like" type="button"></button>
         </div>
 
         <div class="element">
@@ -75,7 +75,7 @@
             class="element__picture"
           />
           <h2 class="element__title">Мурманск</h2>
-          <button class="button element__like" type="button"></button>
+          <button class="element__like" type="button"></button>
         </div>
 
         <div class="element">
@@ -85,7 +85,7 @@
             class="element__picture"
           />
           <h2 class="element__title">Териберка</h2>
-          <button class="button element__like" type="button"></button>
+          <button class="element__like" type="button"></button>
         </div>
 
         <div class="element">
@@ -95,27 +95,32 @@
             class="element__picture"
           />
           <h2 class="element__title">Карелия</h2>
-          <button class="button element__like" type="button"></button>
+          <button class="element__like" type="button"></button>
         </div>
       </section>
-      <section class="popup">
-        <form class="popup__container">
-          <h2 class="popup__title">Редактировать профиль</h2>
-          <input
-            type="text"
-            class="popup__text popup__text_name"
-            placeholder="Имя"
-          />
-          <input
-            type="text"
-            class="popup__text popup__text_about"
-            placeholder="О себе"
-          />
-          <button type="submit" class="popup__submit-btn">Сохранить</button>
-          <button class="popup__close-button" type="button"></button>
-        </form>
-      </section>
-    </main>
+
+    <section class="popup">
+      <div class="popup__container">
+        <button class="popup__close-button" type="button" value="close"></button>
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <form class="form" name="form-popup">
+        <input
+          name="name-input"
+          type="text"
+          class="popup__text popup__text_type_name"
+          placeholder="Имя"
+        />
+        <input
+          name="job-input"
+          type="text"
+          class="popup__text popup__text_type_about"
+          placeholder="О себе"
+        />
+        <button type="submit" class="popup__submit-btn">Сохранить</button>
+      </form>
+      </div>
+    </section>
+  </main>
 
     <!-- footer -->
     <footer class="footer">

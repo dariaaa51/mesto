@@ -2,7 +2,7 @@
   background-image: url(../../../images/like.svg);
   background-repeat: no-repeat;
   background-size: contain;
-  background-color: #ffffff;
+  background-color: transparent;
   width: 22px;
   height: 19px;
   border: none;
@@ -13,4 +13,9 @@
 .element__like:active {
   opacity: 1;
   background-image: url(../../../images/active-like.svg);
+}
+
+.element__like:hover {
+  opacity: 0.5;
+  cursor: pointer;
 }

@@ -5,11 +5,11 @@
   outline: none;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  padding-bottom: 13px;
-  margin: 0 0 29px;
+  margin: 0 0 26px;
   max-width: 358px;
   width: 100%;
   box-sizing: border-box;
+  padding: 0 0 10px 0;
 }
 
 .popup__text:last-of-type {
@@ -20,7 +20,5 @@
   .popup__text {
     padding-bottom: 8px;
     max-width: 238px;
-    font-size: 14px;
-    line-height: 17px;
   }
 }

@@ -38,7 +38,10 @@
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
 
+@import url(../blocks/popup/__image-box/popup__image-box.css);
 
+@import url(../blocks/popup/__figure/popup__figure.css);
+@import url(../blocks/element/__like/_clicked/element__like_clicked.css);
+@import url(../blocks/popup/__image/popup__image.css);
+@import url(../blocks/element/__button/element__button-delete.css);
 
-
-  

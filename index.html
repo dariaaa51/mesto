@@ -36,92 +36,100 @@
       </section>
 
       <!-- elements -->
-      <!-- Немного похвастаюсь частью своих путешествий за последние полгода:))) -->
       <section class="elements">
-        <div class="element">
-          <img
-            src="./images/taman.png"
-            alt="Винодельня Шато-Тамань"
-            class="element__picture"
-          />
-          <h2 class="element__title">Таманский полуостров</h2>
-          <button class="element__like" type="button"></button>
-        </div>
-
-        <div class="element">
-          <img
-            src="./images/abraudurso.png"
-            alt="Винодельня в Абрау-Дюрсо"
-            class="element__picture"
-          />
-          <h2 class="element__title">Абрау-Дюрсо</h2>
-          <button class="element__like" type="button"></button>
-        </div>
-
-        <div class="element">
-          <img
-            src="./images/kazan.png"
-            alt="Мечеть Кул-Шериф в Казани"
-            class="element__picture"
-          />
-          <h2 class="element__title">Казань</h2>
-          <button class="element__like" type="button"></button>
-        </div>
-
-        <div class="element">
-          <img
-            src="./images/murmansk.png"
-            alt="Ресторан в Мурманске"
-            class="element__picture"
-          />
-          <h2 class="element__title">Мурманск</h2>
-          <button class="element__like" type="button"></button>
-        </div>
-
-        <div class="element">
-          <img
-            src="./images/teriberka.png"
-            alt="Конец всех дорог в Териберке"
-            class="element__picture"
-          />
-          <h2 class="element__title">Териберка</h2>
-          <button class="element__like" type="button"></button>
-        </div>
-
-        <div class="element">
-          <img
-            src="./images/karelia.png"
-            alt="Домик в Карелии"
-            class="element__picture"
-          />
-          <h2 class="element__title">Карелия</h2>
-          <button class="element__like" type="button"></button>
-        </div>
       </section>
 
-    <section class="popup">
-      <div class="popup__container">
-        <button class="popup__close-button" type="button" value="close" title="Закрыть без сохранения данных"></button>
-        <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="popup__form" name="form-popup">
-        <input
-          name="name-input"
-          type="text"
-          class="popup__text popup__text_type_name"
-          placeholder="Имя"
-        />
-        <input
-          name="job-input"
-          type="text"
-          class="popup__text popup__text_type_about"
-          placeholder="О себе"
-        />
-        <button type="submit" class="popup__submit-btn">Сохранить</button>
-      </form>
+      <!-- Редактировать профиль -->
+      <div class="popup" id="editPopup">
+        <div class="popup__container">
+          <button
+            id="closeEditPopup"
+            class="popup__close-button"
+            type="button"
+            value="close"
+            title="Закрыть без сохранения данных"
+          ></button>
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <form class="popup__form" name="form-popup" id="editForm">
+            <input
+              id="popupNameInput"
+              name="name-input"
+              type="text"
+              class="popup__text popup__text_type_name"
+              placeholder="Имя"
+            />
+            <input
+              id="popupJobInput"
+              name="job-input"
+              type="text"
+              class="popup__text popup__text_type_about"
+              placeholder="О себе"
+            />
+            <button type="submit" class="popup__submit-btn">Сохранить</button>
+          </form>
+        </div>
       </div>
-    </section>
-  </main>
 
+<!-- Добавить карточку -->
+      <div class="popup" id="addPopup">
+        <div class="popup__container">
+          <button
+            id="closeAddPopup"
+            class="popup__close-button"
+            type="button"
+            value="close"
+            title="Закрыть"
+          ></button>
+          <h2 class="popup__title">Новое место</h2>
+          <form class="popup__form" name="form-popup" id="addForm">
+            <input
+              id="popupDesignationInput"
+              name="name-input"
+              type="text"
+              class="popup__text popup__text_type_name"
+              placeholder="Название"
+            />
+            <input
+              id="popupPlaceInput"
+              name="job-input"
+              type="url"
+              class="popup__text popup__text_type_about"
+              placeholder="Ссылка на картинку"
+              pattern="https?://.+"
+            />
+            <button type="submit" class="popup__submit-btn">Создать</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Окно просмотра фотографий -->
+      <div class="popup popup_content_image">
+        <div class="popup__image-box">
+          
+          <figure class="popup__figure">
+            <button
+              id="figureClosed"
+              class="popup__close-button"
+              type="button"
+              value="close"
+              title="Закрыть"
+            ></button>
+            <img src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg" class="popup__image" alt="Изображение" />
+            <figcaption class="popup__image-caption">Image Caption</figcaption>
+          </figure>
+        </div>
+      </div>
+    </main>
+
+    <!-- Шаблон -->
+    <template id="element-template">
+      <li class="element">
+        <img src="#" alt="_" class="element__picture" />
+        <button class="element__button-delete" title="Удалить" type="button"></button>
+        <h2 class="element__title"></h2>
+        <button class="element__like" title="Нравится"></button>
+      </li>
+    </template>
     <!-- footer -->
     <footer class="footer">
       <p class="footer__copyright">&COPY; 2020 Mesto Russia</p>

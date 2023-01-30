@@ -8,17 +8,29 @@ const editFormEdit = document.querySelector("#editForm");
 const nameInputEdit = document.querySelector("#popupNameInput");
 const jobInputEdit = document.querySelector("#popupJobInput");
 
+function closePopupWithClick(popup) {
+  // Закрытие попапа по overlay
+  const openedPopup = document.querySelector(".popup_opened");
+  openedPopup.addEventListener("click", (evt) => {
+    if (evt.currentTarget === evt.target) {
+      closePopup(openedPopup);
+    }
+  });
+}
+
+function addEscFunction(event) {
+  event.preventDefault();
+  if (event.key === 'Escape' || event.keyCode === 27) {
+    const openedPopup = document.querySelector(".popup_opened");
+    closePopup(openedPopup);
+  }
+}
 
 function openPopup(popup) {
   popup.classList.add("popup_opened");
 
-  // Закрытие попапа по overlay
-  const openedPopup = document.querySelector(".popup_opened");
-  openedPopup.addEventListener('click', evt => {
-    if (evt.currentTarget === evt.target)  {
-      closePopup(openedPopup);
-    }
-  });
+  document.addEventListener('keyup', addEscFunction);
+  closePopupWithClick(popup);
 }
 
 function openEditPopup() {
@@ -31,7 +43,10 @@ buttonOpenEdit.addEventListener("click", openEditPopup);
 
 function closeEditPopup() {
   closePopup(popupEdit);
+
+  document.removeEventListener('keyup', addEscFunction);
 }
+
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
 }
@@ -131,7 +146,7 @@ function createCard(name, link) {
   const deleteButton = cardElement.querySelector(".element__button-delete");
 
   deleteButton.addEventListener("click", () => {
-    const listItem = deleteButton.closest('.element');
+    const listItem = deleteButton.closest(".element");
     listItem.remove();
   });
   return cardElement;
@@ -142,7 +157,6 @@ function addCard(name, link) {
   elements.prepend(newElement);
 }
 
-
 function handleAddFormSubmit(evt) {
   evt.preventDefault();
   const newHeaderValue = `${nameInputAdd.value}`;
@@ -150,7 +164,7 @@ function handleAddFormSubmit(evt) {
   addCard(newHeaderValue, newImageLink);
   closeAddPopup();
 
-  evt.target.reset()
+  evt.target.reset();
 }
 
 function closeImagePopup(evt) {
@@ -161,4 +175,3 @@ function closeImagePopup(evt) {
 closeImagePopupButton.addEventListener("click", closeImagePopup);
 
 editFormAdd.addEventListener("submit", handleAddFormSubmit);
-

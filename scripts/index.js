@@ -11,6 +11,14 @@ const jobInputEdit = document.querySelector("#popupJobInput");
 
 function openPopup(popup) {
   popup.classList.add("popup_opened");
+
+  // Закрытие попапа по overlay
+  const openedPopup = document.querySelector(".popup_opened");
+  openedPopup.addEventListener('click', evt => {
+    if (evt.currentTarget === evt.target)  {
+      closePopup(openedPopup);
+    }
+  });
 }
 
 function openEditPopup() {
@@ -153,3 +161,4 @@ function closeImagePopup(evt) {
 closeImagePopupButton.addEventListener("click", closeImagePopup);
 
 editFormAdd.addEventListener("submit", handleAddFormSubmit);
+

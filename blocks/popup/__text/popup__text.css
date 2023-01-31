@@ -5,11 +5,14 @@
   outline: none;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  margin: 0 0 26px;
+  /* margin: 0 0 26px; */
   max-width: 358px;
   width: 100%;
   box-sizing: border-box;
-  padding: 0 0 10px 0;
+  /* padding: 0 0 10px 0; */
+  padding: 13px 0 0;
+  margin-bottom: 0;
+  margin-top: 20px;
 }
 
 .popup__text:last-of-type {

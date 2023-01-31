@@ -8,8 +8,22 @@ const editFormEdit = document.querySelector("#editForm");
 const nameInputEdit = document.querySelector("#popupNameInput");
 const jobInputEdit = document.querySelector("#popupJobInput");
 
+// Добавить карточку
+const buttonAdd = document.querySelector(".profile__button_type_add");
+const popupAdd = document.querySelector("#addPopup");
+const buttonCloseAdd = document.querySelector("#closeAddPopup");
+const editFormAdd = document.querySelector("#addForm");
+const nameInputAdd = document.querySelector("#popupDesignationInput");
+const jobInputAdd = document.querySelector("#popupPlaceInput");
+const elementTemplate = document.querySelector("#element-template");
+const elements = document.querySelector(".elements");
+const imagePopup = document.querySelector(".popup_content_image");
+const closeImagePopupButton = document.querySelector("#figureClosed");
+const photoCaption = imagePopup.querySelector(".popup__image-caption");
+const photoWindow = imagePopup.querySelector(".popup__image");
+
+// Закрытие попапа по overlay
 function closePopupWithClick(popup) {
-  // Закрытие попапа по overlay
   const openedPopup = document.querySelector(".popup_opened");
   openedPopup.addEventListener("click", (evt) => {
     if (evt.currentTarget === evt.target) {
@@ -18,9 +32,10 @@ function closePopupWithClick(popup) {
   });
 }
 
-function addEscFunction(event) {
+// Закрытие попапа по esc
+function closePopupWithEsc(event) {
   event.preventDefault();
-  if (event.key === 'Escape' || event.keyCode === 27) {
+  if (event.key === "Escape" || event.keyCode === 27) {
     const openedPopup = document.querySelector(".popup_opened");
     closePopup(openedPopup);
   }
@@ -29,7 +44,7 @@ function addEscFunction(event) {
 function openPopup(popup) {
   popup.classList.add("popup_opened");
 
-  document.addEventListener('keyup', addEscFunction);
+  document.addEventListener("keyup", closePopupWithEsc);
   closePopupWithClick(popup);
 }
 
@@ -44,7 +59,7 @@ buttonOpenEdit.addEventListener("click", openEditPopup);
 function closeEditPopup() {
   closePopup(popupEdit);
 
-  document.removeEventListener('keyup', addEscFunction);
+  document.removeEventListener("keyup", closePopupWithEsc);
 }
 
 function closePopup(popup) {
@@ -52,6 +67,7 @@ function closePopup(popup) {
 }
 
 buttonCloseEdit.addEventListener("click", closeEditPopup);
+
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
@@ -61,20 +77,6 @@ function handleProfileFormSubmit(evt) {
 }
 
 editFormEdit.addEventListener("submit", handleProfileFormSubmit);
-
-// Добавить карточку
-const buttonAdd = document.querySelector(".profile__button_type_add");
-const popupAdd = document.querySelector("#addPopup");
-const buttonCloseAdd = document.querySelector("#closeAddPopup");
-const editFormAdd = document.querySelector("#addForm");
-const nameInputAdd = document.querySelector("#popupDesignationInput");
-const jobInputAdd = document.querySelector("#popupPlaceInput");
-const elementTemplate = document.querySelector("#element-template");
-const elements = document.querySelector(".elements");
-const imagePopup = document.querySelector(".popup_content_image");
-const closeImagePopupButton = document.querySelector("#figureClosed");
-const photoCaption = imagePopup.querySelector(".popup__image-caption");
-const photoWindow = imagePopup.querySelector(".popup__image");
 
 function openAddPopup() {
   openPopup(popupAdd);
@@ -96,34 +98,6 @@ function openImagePopup(name, link) {
   photoWindow.alt = name;
 }
 
-// Добавление фото
-const initialElements = [
-  {
-    name: "Архыз",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-  },
-  {
-    name: "Челябинская область",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
-  },
-  {
-    name: "Иваново",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
-  },
-  {
-    name: "Камчатка",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
-  },
-  {
-    name: "Холмогорский район",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
-  },
-  {
-    name: "Байкал",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
-  },
-];
-
 initialElements.forEach((element) => addCard(element.name, element.link));
 
 function createCard(name, link) {
@@ -135,6 +109,7 @@ function createCard(name, link) {
   elementPicture.src = link;
   elementPicture.alt = name;
 
+   // Лайк на картинках
   elementPicture.addEventListener("click", () => {
     openImagePopup(name, link);
   });
@@ -175,3 +150,88 @@ function closeImagePopup(evt) {
 closeImagePopupButton.addEventListener("click", closeImagePopup);
 
 editFormAdd.addEventListener("submit", handleAddFormSubmit);
+
+// // Валидация форм
+// const form = document.querySelector(".popup__form");
+// const formInput = form.querySelector(".popup__text");
+// const formError = form.querySelector(`.${formInput.id}-error`);
+
+// const showInputError = (formElement, inputElement, errorMessage) => {
+//   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+//   inputElement.classList.add("form__input_type_error");
+//   // Отображение сообщения об ошибке
+//   errorElement.textContent = errorMessage;
+//   errorElement.classList.add("form__input-error_active");
+// };
+
+// const hideInputError = (formElement, inputElement) => {
+//   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+//   inputElement.classList.remove("form__input_type_error");
+//   errorElement.classList.remove("form__input-error_active");
+//   errorElement.textContent = "";
+// };
+
+// // Функция проверяет formInput на корректность введённых данных и вызывает hideError и showError
+// const checkInputValidity = (formElement, inputElement) => {
+//   if (!inputElement.validity.valid) {
+//     showInputError(formElement, inputElement, inputElement.validationMessage);
+//   } else {
+//     hideInputError(formElement, inputElement);
+//   }
+// };
+
+// form.addEventListener("submit", function (evt) {
+//   evt.preventDefault();
+// });
+
+// formInput.addEventListener("input", function () {
+//   checkInputValidity(form, formInput);
+// });
+
+// // изменить способ добавления слушателей событий форме и её полям.
+// // Сейчас слушатель добавляется точечно на один инпут, а полей у нас три.
+// const setEventListeners = (formElement) => {
+//   const inputList = Array.from(formElement.querySelectorAll(".popup__text"));
+//   const buttonElement = formElement.querySelector(".popup__submit-btn");
+//   toggleButtonState(inputList, buttonElement);
+
+//   inputList.forEach((inputElement) => {
+//     inputElement.addEventListener("input", function () {
+//       checkInputValidity(formElement, inputElement);
+
+//       toggleButtonState(inputList, buttonElement);
+//     });
+//   });
+// };
+
+// const enableValidation = () => {
+//   const formList = Array.from(document.querySelectorAll(".popup__form"));
+//   formList.forEach((formElement) => {
+//     formElement.addEventListener("submit", (evt) => {
+//       evt.preventDefault();
+//     });
+//     const fieldsetList = Array.from(formElement.querySelectorAll(".form__set"));
+//     fieldsetList.forEach((fieldset) => {
+//       setEventListeners(fieldset);
+//     });
+//   });
+// };
+
+// enableValidation();
+
+// // функция обходит массив полей и отвечает на вопрос:
+// // «Есть ли здесь хотя бы одно поле, которое не прошло валидацию?».
+// function hasInvalidInput(inputList) {
+//   return inputList.some((inputElement) => {
+//     return !inputElement.validity.valid;
+//   });
+// }
+
+// //  функция которая блокирует кнопку отправить
+// function toggleButtonState(inputList, buttonElement) {
+//   if (hasInvalidInput(inputList)) {
+//     buttonElement.classList.add("button_inactive");
+//   } else {
+//     buttonElement.classList.remove("button_inactive");
+//   }
+// }

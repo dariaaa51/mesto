@@ -49,21 +49,29 @@
             title="Закрыть без сохранения данных"
           ></button>
           <h2 class="popup__title">Редактировать профиль</h2>
-          <form class="popup__form" name="form-popup" id="editForm">
+          <form class="popup__form" name="form-popup" id="editForm" novalidate>
             <input
               id="popupNameInput"
               name="name-input"
               type="text"
               class="popup__text popup__text_type_name"
               placeholder="Имя"
+              minlength="2"
+              maxlength="40"
+              required
             />
+            <span id="popupNameInput-error" class="popup__input-error"></span>
             <input
               id="popupJobInput"
               name="job-input"
               type="text"
               class="popup__text popup__text_type_about"
               placeholder="О себе"
+              minlength="2"
+              maxlength="200"
+              required
             />
+            <span id="popupJobInput-error" class="popup__input-error"></span>
             <button type="submit" class="popup__submit-btn">Сохранить</button>
           </form>
         </div>
@@ -80,14 +88,18 @@
             title="Закрыть"
           ></button>
           <h2 class="popup__title">Новое место</h2>
-          <form class="popup__form" name="form-popup" id="addForm">
+          <form class="popup__form" name="form-popup" id="addForm" novalidate>
             <input
               id="popupDesignationInput"
               name="name-input"
               type="text"
               class="popup__text popup__text_type_name"
               placeholder="Название"
+              minlength="2"
+              maxlength="30"
+              required
             />
+            <span id="popupDesignationInput-error" class="popup__input-error"></span>
             <input
               id="popupPlaceInput"
               name="job-input"
@@ -95,7 +107,9 @@
               class="popup__text popup__text_type_about"
               placeholder="Ссылка на картинку"
               pattern="https?://.+"
+              required
             />
+            <span id="popupPlaceInput-error" class="popup__input-error"></span>
             <button type="submit" class="popup__submit-btn">Создать</button>
           </form>
         </div>
@@ -140,6 +154,8 @@
     <footer class="footer">
       <p class="footer__copyright">&COPY; 2020 Mesto Russia</p>
     </footer>
+    <script src="./scripts/initial-сards.js"></script>
+    <script src="./scripts/validate.js"></script>
     <script src="./scripts/index.js"></script>
   </body>
 </html>

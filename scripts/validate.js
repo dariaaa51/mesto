@@ -33,9 +33,6 @@ const checkInputValidity = (formElement, inputElement, config) => {
 // Изменить способ добавления слушателей событий форме и её полям.
 const setEventListeners = (formElement, config) => {
     const { inputSelector, submitButtonSelector, ...restConfig} = config;
-    formElement.addEventListener('submit', (evt) => {
-        evt.preventDefault;
-    })
 
     const inputList = Array.from(formElement.querySelectorAll(inputSelector));
     const buttonElement = formElement.querySelector(submitButtonSelector);
@@ -60,16 +57,12 @@ const enableValidation = (config) => {
 
 // Функция обходит массив полей и отвечает на вопрос:
 // «Есть ли здесь хотя бы одно поле, которое не прошло валидацию?».
-const hasInvalidInput = (inputList) => {
-    return inputList.some((item) => {
-      if (item.validity.valid) {
-        return false;
-      }
-      else {
-        return true;
-      }
-    })
-  };
+function hasInvalidInput(inputList) {
+  return inputList.some((item) => {
+    return !item.validity.valid;
+  });
+ }
+ 
 
   //  функция которая блокирует кнопку отправить
 const toggleButtonState = (inputList, buttonElement) => {

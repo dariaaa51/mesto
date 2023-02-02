@@ -44,9 +44,9 @@ function openPopup(popup) {
   document.addEventListener("keydown", closePopupWithEsc);
 }
 
-function closeEditPopup() {
-  closePopup(popupEdit);
-
+function closePopup(popup) {
+  popup.classList.remove("popup_opened");
+  document.removeEventListener("mousedown", closePopupWithClick);
   document.removeEventListener("keyup", closePopupWithEsc);
 }
 
@@ -56,11 +56,11 @@ function openEditPopup() {
   jobInputEdit.value = profileJobEdit.textContent;
 }
 
-buttonOpenEdit.addEventListener("click", openEditPopup);
-
-function closePopup(popup) {
-  popup.classList.remove("popup_opened");
+function closeEditPopup() {
+  closePopup(popupEdit);
 }
+
+buttonOpenEdit.addEventListener("click", openEditPopup);
 
 buttonCloseEdit.addEventListener("click", closeEditPopup);
 

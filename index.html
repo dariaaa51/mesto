@@ -42,7 +42,7 @@
       <section class="elements"></section>
 
       <!-- Редактировать профиль -->
-      <div class="popup" id="editPopup">
+      <div class="popup popup_profile-edit" id="editPopup">
         <div class="popup__container">
           <button
             id="closeEditPopup"
@@ -55,7 +55,7 @@
           <form class="popup__form" name="form-popup" id="editForm" novalidate>
             <input
               id="popupNameInput"
-              name="name-input"
+              name="username"
               type="text"
               class="popup__text popup__text_type_name"
               placeholder="Имя"
@@ -66,7 +66,7 @@
             <span id="popupNameInput-error" class="popup__input-error"></span>
             <input
               id="popupJobInput"
-              name="job-input"
+              name="userjob"
               type="text"
               class="popup__text popup__text_type_about"
               placeholder="О себе"
@@ -81,7 +81,7 @@
       </div>
 
       <!-- Добавить карточку -->
-      <div class="popup" id="addPopup">
+      <div class="popup popup_new-place" id="addPopup">
         <div class="popup__container">
           <button
             id="closeAddPopup"
@@ -94,7 +94,7 @@
           <form class="popup__form" name="form-popup" id="addForm" novalidate>
             <input
               id="popupDesignationInput"
-              name="name-input"
+              name="name"
               type="text"
               class="popup__text popup__text_type_name"
               placeholder="Название"
@@ -108,7 +108,7 @@
             ></span>
             <input
               id="popupPlaceInput"
-              name="job-input"
+              name="link"
               type="url"
               class="popup__text popup__text_type_about"
               placeholder="Ссылка на картинку"
@@ -139,7 +139,7 @@
     </main>
 
     <!-- Шаблон -->
-    <template id="element-template">
+    <template id="element-template" class="cards-template">
       <li class="element">
         <img src="#" alt="_" class="element__picture" />
         <button
@@ -156,7 +156,7 @@
       <p class="footer__copyright">&COPY; 2020 Mesto Russia</p>
     </footer>
 
-    <script src="./scripts/initial-сards.js"></script>
-    <script type="module" src="./scripts/index.js"></script>
+    <script src="./pages/index.js" type="module"></script>
+    <script type="module" src="./utilits/сards.js"></script>
   </body>
 </html>

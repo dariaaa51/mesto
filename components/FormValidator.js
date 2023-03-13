@@ -2,19 +2,13 @@ class FormValidator {
   constructor(config, formName) {
     this._config = config;
     this._formName = formName;
-  }
 
-  _hideErrorMessage(inputElement, config) {
-    //Убрать спан с ошибкой под инпутом
-    const { inputErrorClass, errorClass } = config;
-    const errorElement = this._formName.querySelector(
-      `#${inputElement.id}-error`
+    this._inputList = Array.from(
+      this._formName.querySelectorAll(this._config.inputSelector)
     );
-
-    inputElement.classList.remove(inputErrorClass);
-    errorElement.classList.remove(errorClass);
-
-    errorElement.textContent = "";
+    this._buttonElement = this._formName.querySelector(
+      this._config.submitButtonSelector
+    );
   }
 
   _showErrorMessage(inputElement, config) {
@@ -28,6 +22,19 @@ class FormValidator {
     errorElement.classList.add(errorClass);
 
     errorElement.textContent = inputElement.validationMessage;
+  }
+
+  _hideErrorMessage(inputElement, config) {
+    //Убрать спан с ошибкой под инпутом
+    const { inputErrorClass, errorClass } = config;
+    const errorElement = this._formName.querySelector(
+      `#${inputElement.id}-error`
+    );
+
+    inputElement.classList.remove(inputErrorClass);
+    errorElement.classList.remove(errorClass);
+
+    errorElement.textContent = "";
   }
 
   // Функция проверяет formInput на корректность введённых данных и вызывает hideError и showError
@@ -46,17 +53,13 @@ class FormValidator {
       evt.preventDefault;
     });
 
-    const inputList = Array.from(
-      this._formName.querySelectorAll(inputSelector)
-    );
-    const buttonElement = this._formName.querySelector(submitButtonSelector);
-    this._toggleButtonState(inputList, buttonElement);
+    this._toggleButtonState();
 
-    inputList.forEach((inputElement) => {
+    this._inputList.forEach((inputElement) => {
       this._checkInputValidity(inputElement, rest);
       inputElement.addEventListener("input", () => {
         this._checkInputValidity(inputElement, rest);
-        this._toggleButtonState(inputList, buttonElement);
+        this._toggleButtonState();
       });
     });
   }
@@ -64,20 +67,14 @@ class FormValidator {
   resetForm() {
     const { inputSelector, submitButtonSelector, ...rest } = this._config;
     this._formName.reset();
-    const inputList = Array.from(
-      this._formName.querySelectorAll(inputSelector)
-    );
-    inputList.forEach((input) => {
+
+    this._inputList.forEach((input) => {
       this._hideErrorMessage(input, rest);
-      const inputList = Array.from(
-        this._formName.querySelectorAll(inputSelector)
-      );
-      const buttonElement = this._formName.querySelector(submitButtonSelector);
-      this._toggleButtonState(inputList, buttonElement);
+      this._toggleButtonState();
     });
   }
 
-  enableValidation = (config) => {
+  enableValidation = () => {
     const { formSelector, ...rest } = this._config;
     const formList = Array.from(document.querySelectorAll(formSelector));
 
@@ -88,20 +85,25 @@ class FormValidator {
 
   // Функция обходит массив полей и отвечает на вопрос:
   // «Есть ли здесь хотя бы одно поле, которое не прошло валидацию?».
-  _hasInvalidInput(inputList) {
-    return inputList.some((item) => {
+  _hasInvalidInput = () => {
+    return this._inputList.some((item) => {
       return !item.validity.valid;
     });
+  };
+
+  // Дизейбл кнопки сабмита
+  _disableSubmitButton() {
+    this._buttonElement.setAttribute("disabled", true);
   }
 
   //  функция которая блокирует кнопку отправить
-  _toggleButtonState(inputList, buttonElement) {
-    if (this._hasInvalidInput(inputList)) {
-      buttonElement.disabled = true;
+  _toggleButtonState = () => {
+    if (this._hasInvalidInput()) {
+      this._disableSubmitButton();
     } else {
-      buttonElement.disabled = false;
+      this._buttonElement.disabled = false;
     }
-  }
+  };
 }
 
 export { FormValidator };

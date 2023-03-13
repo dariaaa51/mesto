@@ -25,3 +25,5 @@ const initialCards = [
     link: "https://sun9-47.userapi.com/impg/csgc861CbTgc2RueHtn29_u7nS6yX7mVx4nZEQ/Uz6n8NqLCyg.jpg?size=1440x1440&quality=95&sign=abc92e760b902a61713cfa3a1868163f&type=album",
   },
 ];
+
+export { initialCards }

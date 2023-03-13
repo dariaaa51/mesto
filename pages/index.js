@@ -1,3 +1,13 @@
+import { 
+  buttonOpenEdit,
+  buttonAdd,
+  nameInputEdit,
+  jobInputEdit,
+  popupEdit,
+  editFormAdd, 
+  popupAdd,
+  config
+} from "../utilits/constants.js"
 import { Card } from "../components/Card.js";
 import { FormValidator } from "../components/FormValidator.js";
 import { Section } from "../components/Section.js";
@@ -5,36 +15,6 @@ import { PopupWithImage } from "../components/PopupWithImage.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { UserInfo } from "../components/UserInfo.js";
 import { initialCards } from "../utilits/сards.js"
-
-// Кнопки открытия попапов
-const buttonOpenEdit = document.querySelector(".profile__button_type_edit");
-const buttonAdd = document.querySelector(".profile__button_type_add");
-
-// Редактировать профиль
-const nameInputEdit = document.querySelector("#popupNameInput");
-const jobInputEdit = document.querySelector("#popupJobInput");
-const editFormEdit = document.querySelector("#editForm");
-const popupEdit = document.querySelector("#editPopup");
-
-// Добавить место
-const editFormAdd = document.querySelector("#addForm");
-const popupAdd = document.querySelector("#addPopup");
-
-const buttonCloseEdit = document.querySelector("#closeEditPopup");
-const profileNameEdit = document.querySelector(".profile__name");
-const profileJobEdit = document.querySelector(".profile__description");
-const nameInputAdd = document.querySelector("#popupDesignationInput");
-const jobInputAdd = document.querySelector("#popupPlaceInput");
-const buttonCloseAdd = document.querySelector("#closeAddPopup");
-const cardsContainer = document.querySelector(".elements");
-
-const config = {
-  formSelector: ".popup__form",
-  inputSelector: ".popup__text",
-  submitButtonSelector: ".popup__submit-btn",
-  inputErrorClass: "popup_input_type_error",
-  errorClass: "popup__input-error_is-active",
-};
 
 // Включение валидации
 const validatorAddCardForm = new FormValidator(config, popupAdd);

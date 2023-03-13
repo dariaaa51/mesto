@@ -13,9 +13,9 @@ export default class UserInfo {
   }
 
   setUserInfo(formData) {
-    this._userName.textContent = formData['username'];
-    this._userJob.textContent = formData['userjob'];
+    this._userName.textContent = formData["username"];
+    this._userJob.textContent = formData["userjob"];
   }
 }
 
-export { UserInfo }
+export { UserInfo };

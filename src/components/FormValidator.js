@@ -66,11 +66,10 @@ class FormValidator {
 
   resetForm() {
     const { inputSelector, submitButtonSelector, ...rest } = this._config;
-    this._formName.reset();
-
+    // this._formName.reset();
+    this._toggleButtonState();
     this._inputList.forEach((input) => {
       this._hideErrorMessage(input, rest);
-      this._toggleButtonState();
     });
   }
 

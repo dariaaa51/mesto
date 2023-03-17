@@ -6,15 +6,11 @@ class Section {
   }
 
   renderItems() {
-    this._items.forEach((item) => this._renderer(item));
+    this._items.forEach(this._renderer);
   }
 
-  addInitialItemPrep(element) {
+  addItem(element) {
     this._container.prepend(element);
-  }
-
-  addInitialItemApp(element) {
-    this._container.append(element);
   }
 }
 

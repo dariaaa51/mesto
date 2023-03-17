@@ -74,7 +74,7 @@ popupNewPlace.setEventListeners();
 // Слушатель события
 buttonAdd.addEventListener("click", () => {
   // editFormAdd.reset();
-  // newPlaceValid.resetForm();
+  validatorAddCardForm.resetForm();
   popupNewPlace.open();
 });
 
@@ -100,7 +100,7 @@ buttonOpenEdit.addEventListener('click', () => {
   nameInputEdit.value = dataUserProfile.name;
   jobInputEdit.value = dataUserProfile.job;
 
-  // profileValid.clearError();
+  validatorEditCardForm.resetForm()
   popupEditProfile.open();
 }
 )

@@ -19,11 +19,15 @@
     <main class="main">
       <!-- profile -->
       <section class="profile">
-        <img
+        <div class="profile__avatar-area">
+          <img src="<%=require('./images/profile-photo.png')%>" class="profile__avatar" alt="Аватар профиля">
+          <button type="button" class="profile__avatar-edit" aria-label="Редактировать аватар профиля"></button>
+        </div>
+        <!-- <img
           src="<%=require('./images/profile-photo.png')%>"
           class="profile__avatar"
           alt="Фото профиля"
-        />
+        /> -->
         <div class="profile__info">
           <h1 class="profile__name">Даша Путешественница</h1>
           <p class="profile__description">Исследую крутые места в России!</p>
@@ -40,6 +44,46 @@
 
       <!-- elements -->
       <section class="elements"></section>
+
+      <!-- Изменить аватар -->
+      <div class="popup" id="avatar-popup">
+        <div class="popup__container">
+          <button
+            class="popup__close-button"
+            id="avatarCloseButton"
+            type="button"
+            value="close"
+            title="Закрыть без сохранения данных"
+          ></button>
+          <h2 class="popup__title">Обновить аватар</h2>
+          <form class="popup__form" id="formAvatarPopup" novalidate>
+            <input
+              class="popup__text"
+              id="inputAvatarPopup"
+              placeholder="Ссылка на фото"
+              type="url"
+              required
+            />
+            <span id="popupJobInput-error" class="popup__input-error"></span>
+            <button type="submit" class="popup__submit-btn">Сохранить</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Удаление карточки -->
+      <div class="popup popup_delete-card" id="delete-card">
+        <div class="popup__container">
+          <button
+            class="popup__close-button"
+            id="deleteCardCloseButton"
+            type="button"
+            value="close"
+            title="Закрыть без сохранения данных"
+          ></button>
+          <h2 class="popup__title">Вы уверены?</h2>
+          <button type="submit" class="popup__submit-btn">Да</button>
+        </div>
+      </div>
 
       <!-- Редактировать профиль -->
       <div class="popup popup_profile-edit" id="editPopup">
@@ -148,7 +192,10 @@
           type="button"
         ></button>
         <h2 class="element__title"></h2>
-        <button class="element__like" title="Нравится"></button>
+        <div class="element__like-area">
+          <button class="element__like" title="Нравится"></button>
+          <p class="element__like-counter">100500</p>
+        </div>
       </li>
     </template>
     <!-- footer -->

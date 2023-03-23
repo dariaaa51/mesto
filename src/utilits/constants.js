@@ -10,6 +10,8 @@ export const jobInputEdit = document.querySelector("#popupJobInput");
 export const popupEdit = document.querySelector("#editPopup");
 export const formEditPopup = document.querySelector("#editForm");
 
+// Аватарка
+export const formEditAvatar = document.querySelector("#formAvatarPopup");
 
 // Добавить место
 export const formAddPopup = document.querySelector("#addForm");

@@ -49,3 +49,17 @@
 
 @import url(../blocks/popup/__input-error/popup__input-error.css);
 
+.element__count {
+  margin: 0;
+  font-size: 13px;
+  line-height: 16px;
+  text-align: center;
+  color: #000000;
+}
+
+.element__group {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-right: 5px;
+}

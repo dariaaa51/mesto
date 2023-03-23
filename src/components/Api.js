@@ -1,7 +1,15 @@
 class Api {
-  constructor({ link, headers }) {
+  constructor(link, token) {
     this._link = link;
-    this._headers = headers;
+    this._token = token;
+  }
+
+  // Авторизация
+  _getHeaders() {
+    return {
+      "Content-Type": "application/json",
+      authorization: this._token,
+    };
   }
 
   // Метод обработки ответа сервера
@@ -15,86 +23,73 @@ class Api {
 
   // Метод получения данных пользователя с сервера
   getUserInfo() {
-    return fetch(`${this._link}users/me`, {
-      headers: this._headers,
-    }).then((res) => {
-      return this._getResponseData(res);
-    });
+    return fetch(`${this._link}/users/me`, {
+      headers: this._getHeaders(),
+    }).then(this._getResponseData);
   }
 
   // Метод инициализации карточек с сервера
   getCards() {
-    return fetch(`${this._link}cards`, {
-      headers: this._headers,
-    }).then((res) => {
-      return this._getResponseData(res);
-    });
+    return fetch(`${this._link}/cards`, {
+      headers: this._getHeaders(),
+    }).then(this._getResponseData);
   }
 
   // Метод отправки данных пользователя на сервер
-  sendUserInfo(item) {
-    return fetch(`${this._link}users/me`, {
-      headers: this._headers,
+  sendUserInfo({ name, about }) {
+    return fetch(`${this._link}/users/me`, {
+      headers: this._getHeaders(),
       method: "PATCH",
       body: JSON.stringify({
-        name: item.name,
-        about: item.job,
+        name: `${name}`,
+        link: `${about}`,
       }),
-    }).then((res) => {
-      return this._getResponseData(res);
-    });
+    }).then(this._getResponseData);
   }
 
-  // Метод добавления новой карточки на сервер 
+  // Метод добавления новой карточки на сервер
   addNewCard({ name, link }) {
-    return fetch(`${this._link}cards`, {
-      headers: this._headers,
+    return fetch(`${this._link}/cards`, {
+      headers: this._getHeaders(),
       method: "POST",
-      body: JSON.stringify({ name, link }),
-    }).then((res) => {
-      return this._getResponseData(res);
-    });
+      body: JSON.stringify({
+        name: `${name}`,
+        link: `${link}`,
+      }),
+    }).then(this._getResponseData);
   }
 
   // Метод удаления карточки с сервера
   deleteCard(cardId) {
-    return fetch(`${this._link}cards/${cardId}`, {
-      headers: this._headers,
+    return fetch(`${this._link}/cards/${cardId}`, {
+      headers: this._getHeaders(),
       method: "DELETE",
-    }).then((res) => {
-      return this._getResponseData(res);
-    });
+    }).then(this._getResponseData);
   }
 
   // Метод отправки лайка на сервер
-  likeCard(cardId) {
-    return fetch(`${this._link}cards/${cardId}/likes`, {
-      headers: this._headers,
+  putLike(cardId) {
+    return fetch(`${this._link}/cards/${cardId}/likes`, {
+      headers: this._getHeaders(),
       method: "PUT",
-    }).then((res) => {
-      return this._getResponseData(res);
-    });
+    }).then(this._getResponseData);
   }
 
   // Метод удаления лайка с сервера
-  dislikeCard(cardId) {
-    return fetch(`${this._link}cards/${cardId}/likes`, {
-      headers: this._headers,
+  deleteLike(cardId) {
+    return fetch(`${this._link}/cards/${cardId}/likes`, {
+      headers: this._getHeaders(),
       method: "DELETE",
-    }).then((res) => {
-      return this._getResponseData(res);
-    });
+    }).then(this._getResponseData);
   }
 
   // Метод отправки данных о новом аватаре на сервер
-  setAvatar(avatarLink) {
-    return fetch(`${this._link}users/me/avatar`, {
-      headers: this._headers,
+  setAvatar(data) {
+    return fetch(`${this._link}/users/me/avatar`, {
+      headers: this._getHeaders(),
       method: "PATCH",
-      body: JSON.stringify({ avatar: avatarLink.avatar }),
-    }).then((res) => {
-      return this._getResponseData(res);
-    });
+      body: JSON.stringify(data),
+    }).then(this._getResponseData);
   }
 }
 

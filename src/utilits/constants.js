@@ -8,14 +8,12 @@ export const buttonAdd = document.querySelector(".profile__button_type_add");
 export const nameInputEdit = document.querySelector("#popupNameInput");
 export const jobInputEdit = document.querySelector("#popupJobInput");
 export const popupEdit = document.querySelector("#editPopup");
+export const formEditPopup = document.querySelector("#editForm");
+
 
 // Добавить место
-export const editFormAdd = document.querySelector("#addForm");
+export const formAddPopup = document.querySelector("#addForm");
 export const popupAdd = document.querySelector("#addPopup");
-
-//  Изменить аватар
-export const formEditProfilePhoto = document.querySelector("#avatar-popup");
-export const buttonEditProfilePhoto = document.querySelector('.profile__avatar-edit')
 
 export const config = {
   formSelector: ".popup__form",
@@ -24,6 +22,3 @@ export const config = {
   inputErrorClass: "popup_input_type_error",
   errorClass: "popup__input-error_is-active",
 };
-
-
-

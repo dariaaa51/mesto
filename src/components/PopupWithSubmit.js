@@ -1,25 +1,22 @@
 import Popup from "./Popup.js";
 
-class PopupWithSubmit extends Popup {
-  constructor(popupSelector, { callbackNotice }) {
+export default class PopupWithConfirmation extends Popup {
+  constructor(popupSelector, callbackSubmitForm) {
     super(popupSelector);
-    this._submitButton = this._popup.querySelector(".popup__form");
-    this._callbackNotice = callbackNotice;
+    this._callbackSubmitForm = callbackSubmitForm;
+    this._form = this._popup.querySelector(".popup__form");
   }
 
-  open(cardObject, cardId) {
-    this._cardObject = cardObject;
-    this._cardId = cardId;
+  open(deletingCard) {
     super.open();
+    this._deletingCard = deletingCard;
   }
 
   setEventListeners() {
-    this._submitButton.addEventListener("submit", (evt) => {
-      evt.preventDefault();
-      this._callbackNotice(this._cardObject, this._cardId);
-    });
     super.setEventListeners();
+    this._form.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+      this._callbackSubmitForm(this._deletingCard);
+    });
   }
 }
-
-export { PopupWithSubmit };

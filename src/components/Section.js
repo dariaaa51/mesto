@@ -15,7 +15,7 @@ class Section {
     this._container.append(element);
   }
 
-  addItemPrep(element) {
+  addItemPrepend(element) {
     this._container.prepend(element);
   }
 }

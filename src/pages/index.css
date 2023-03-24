@@ -49,17 +49,13 @@
 
 @import url(../blocks/popup/__input-error/popup__input-error.css);
 
-.element__count {
-  margin: 0;
-  font-size: 13px;
-  line-height: 16px;
-  text-align: center;
-  color: #000000;
-}
+@import url(../blocks/element/__count/element__count.css);
+@import url(../blocks/element/__group/element__group.css);
 
-.element__group {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  margin-right: 5px;
-}
+
+@import url(../blocks/profile/__avatar-edit/profile__avatar-edit.css);
+@import url(../blocks/profile/__avatar-area/profile__avatar-area.css);
+
+
+
+

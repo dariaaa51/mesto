@@ -12,6 +12,7 @@ export const formEditPopup = document.querySelector("#editForm");
 
 // Аватарка
 export const formEditAvatar = document.querySelector("#formAvatarPopup");
+export const popupEditAvatar = document.querySelector(".profile__avatar-edit");
 
 // Добавить место
 export const formAddPopup = document.querySelector("#addForm");

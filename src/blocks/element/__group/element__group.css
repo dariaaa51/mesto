@@ -1,0 +1,6 @@
+.element__group {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-right: 5px;
+  }

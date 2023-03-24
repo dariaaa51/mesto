@@ -10,7 +10,7 @@ class Card {
   ) {
     this._name = data.name;
     this._link = data.link;
-    // this._templateSelector = templateSelector;
+
     this._currentUserId = currentUserId;
     this._cardSelector = cardSelector;
     this._handleCardClick = handleCardClick;
@@ -33,6 +33,12 @@ class Card {
 
     return cardElement;
   }
+  
+  // Метод удаления карточки
+  deleteCard() {
+    this._element.remove();
+    this._element = null;
+  }
 
   getCardId() {
     return this._id;
@@ -46,31 +52,26 @@ class Card {
     }
   }
 
-  deleteCard() {
-    this._element.remove();
-    this._element = null;
-  }
-
   _isLiked() {
     return this._likes.some((like) => {
       return like._id === this._currentUserId;
     });
   }
 
-  // _setLikeState() {
-  //   if (this._isLiked()) {
-  //     this._likeButton.classList.add("elements__like_clicked");
-  //   } else {
-  //     this._likeButton.classList.remove("elements__like_clicked");
-  //   }
-  //   this._like.textContent = this._likeCount;
-  // }
+  _renderCardLike() {
+    if (this._isLiked()) {
+      this._handlelikeButton.classList.add("element__like_clicked");
+    } else {
+      this._handlelikeButton.classList.remove("element__like_clicked");
+    }
+    this._like.textContent = this._likeCount;
+  }
 
-  // updateLike(likes) {
-  //   this._likeCount = likes.length;
-  //   this._likes = likes;
-  //   this._setLikeState();
-  // }
+  updateLike(likes) {
+    this._likeCount = likes.length;
+    this._likes = likes;
+    this._renderCardLike();
+  }
 
   _setEventListeners() {
     this._cardImage.addEventListener("click", () =>
@@ -84,6 +85,7 @@ class Card {
     );
   }
 
+  // Создание карточек
   generateCard() {
     this._element = this._getTemplate();
     this._cardImage = this._element.querySelector(".element__picture");
@@ -91,14 +93,16 @@ class Card {
     this._trashButton = this._element.querySelector(".element__button-delete");
     this._like = this._element.querySelector(".element__count");
     this._setEventListeners();
+
+    // Передача данных в карточку
     this._cardImage.src = this._link;
     this._cardImage.alt = this._name;
     this._element.querySelector(".element__title").textContent = this._name;
 
-    // this._setLikeState();
-    // if (!this._isOwner) {
-    //   this._deleteButton.setAttribute("hidden", true);
-    // }
+    this._renderCardLike();
+    if (!this._isOwner) {
+      this._trashButton.setAttribute("hidden", true);
+    }
 
     return this._element;
   }

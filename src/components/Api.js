@@ -22,27 +22,27 @@ class Api {
   }
 
   // Метод получения данных пользователя с сервера
-  getUserInfo() {
+  getUserInfoApi() {
     return fetch(`${this._link}/users/me`, {
       headers: this._getHeaders(),
     }).then(this._getResponseData);
   }
 
   // Метод инициализации карточек с сервера
-  getCards() {
+  getCardsApi() {
     return fetch(`${this._link}/cards`, {
       headers: this._getHeaders(),
     }).then(this._getResponseData);
   }
 
   // Метод отправки данных пользователя на сервер
-  sendUserInfo({ name, about }) {
+  sendUserInfoApi({ name, about }) {
     return fetch(`${this._link}/users/me`, {
       headers: this._getHeaders(),
       method: "PATCH",
       body: JSON.stringify({
         name: `${name}`,
-        link: `${about}`,
+        about: `${about}`,
       }),
     }).then(this._getResponseData);
   }

@@ -21,7 +21,7 @@
       <section class="profile">
         <div class="profile__avatar-area">
           <img
-            src="<%=require('./images/profile-photo.png')%>"
+            src="#"
             class="profile__avatar"
             alt="Аватар профиля"
           />
@@ -31,14 +31,9 @@
             aria-label="Редактировать аватар профиля"
           ></button>
         </div>
-        <!-- <img
-          src="<%=require('./images/profile-photo.png')%>"
-          class="profile__avatar"
-          alt="Фото профиля"
-        /> -->
         <div class="profile__info">
-          <h1 class="profile__name">Даша Путешественница</h1>
-          <p class="profile__description">Исследую крутые места в России!</p>
+          <h1 class="profile__name"></h1>
+          <p class="profile__description"></p>
           <button
             class="button profile__button profile__button_type_edit"
             type="button"
@@ -51,7 +46,7 @@
       </section>
 
       <!-- Изменить аватар -->
-      <div class="popup" id="avatar-popup">
+      <div class="popup popup_new-avatar" id="avatar-popup">
         <div class="popup__container">
           <button
             class="popup__close-button"
@@ -64,12 +59,13 @@
           <form class="popup__form" id="formAvatarPopup" novalidate>
             <input
               class="popup__text"
+              name="avatar"
               id="inputAvatarPopup"
               placeholder="Ссылка на фото"
               type="url"
               required
             />
-            <span id="popupJobInput-error" class="popup__input-error"></span>
+            <span id="popupAvatarInput-error" class="popup__input-error"></span>
             <button type="submit" class="popup__submit-btn">Сохранить</button>
           </form>
         </div>
@@ -91,7 +87,7 @@
           <form class="popup__form" name="form-popup" id="editForm" novalidate>
             <input
               id="popupNameInput"
-              name="username"
+              name="name"
               type="text"
               class="popup__text popup__text_type_name"
               placeholder="Имя"
@@ -102,7 +98,7 @@
             <span id="popupNameInput-error" class="popup__input-error"></span>
             <input
               id="popupJobInput"
-              name="userjob"
+              name="about"
               type="text"
               class="popup__text popup__text_type_about"
               placeholder="О себе"
@@ -127,7 +123,9 @@
             title="Закрыть без сохранения данных"
           ></button>
           <h2 class="popup__title">Вы уверены?</h2>
-          <button type="submit" class="popup__submit-btn">Да</button>
+          <form class="popup__form" name="formDelete">
+            <button type="submit" class="popup__submit-btn">Да</button>
+          </form>
         </div>
       </div>
 
